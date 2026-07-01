@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photographer | Premium Visual Storytelling</title>
+    <meta name="description" content="Professional photography services. Weddings, Portraits, Events, and Commercial photography. Capturing life's most beautiful moments." />
+    <link rel="canonical" href="https://yourphotography.ng/" />
+    <meta property="og:title" content="Photographer | Premium Visual Storytelling" />
+    <meta property="og:description" content="Professional photography services. Weddings, Portraits, Events, and Commercial photography." />
+    <meta property="og:type" content="website" />
+    <style>
+        /* ----- RESET & BASE ----- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --black: #0A0A0A;
+            --black-light: #141414;
+            --black-mid: #1A1A1A;
+            --white: #F5F0EB;
+            --white-muted: #C5BFB8;
+            --gold: #C9A8A0;
+            --gold-light: #DDC4BC;
+            --gold-dark: #A8877F;
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ----- LOADER ----- */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.7s ease, visibility 0.7s ease;
+        }
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-text {
+            font-size: 1.2rem;
+            letter-spacing: 8px;
+            color: var(--white-muted);
+            font-weight: 300;
+            animation: pulse 1.4s ease-in-out infinite;
+        }
+        .loader-text span {
+            color: var(--gold);
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 0.4;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* ----- STICKY NAV (Minimal) ----- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            z-index: 1000;
+            transition: background 0.3s, padding 0.3s;
+        }
+        nav.scrolled {
+            padding: 12px 0;
+            background: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo span {
+            color: var(--gold);
+        }
+        .logo .divider {
+            color: var(--white-muted);
+            opacity: 0.2;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--white-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+            left: 0;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--white);
+        }
+        .nav-cta {
+            background: var(--gold);
+            color: var(--black) !important;
+            padding: 8px 24px;
+            border-radius: 0;
+            font-weight: 500 !important;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.7rem !important;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .nav-cta::after {
+            display: none !important;
+        }
+        .nav-cta:hover {
+            background: var(--gold-light);
+            transform: scale(1.02);
+            color: var(--black) !important;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 1.5px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ----- HERO (Full-width, Minimal) ----- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0 60px;
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse at 70% 30%, rgba(201, 168, 160, 0.04), transparent 70%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-content {
+            padding: 20px 0;
+        }
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+            padding: 4px 16px;
+            border: 1px solid rgba(201, 168, 160, 0.15);
+            font-weight: 300;
+        }
+        .hero-content h1 {
+            font-size: 4.2rem;
+            font-weight: 200;
+            line-height: 1.05;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        .hero-content h1 span {
+            color: var(--gold);
+            font-weight: 300;
+        }
+        .hero-content .subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--white-muted);
+            max-width: 440px;
+            margin-bottom: 32px;
+            letter-spacing: 0.5px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--gold);
+            color: var(--black);
+            padding: 14px 38px;
+            font-weight: 500;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 14px 38px;
+            font-weight: 300;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: border-color 0.3s, color 0.3s, transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-image .placeholder-img {
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 1/1;
+            background: var(--black-light);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+            padding: 40px;
+            gap: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-image .placeholder-img .camera-icon {
+            opacity: 0.6;
+        }
+        .hero-image .placeholder-img .brand-text {
+            font-size: 1rem;
+            font-weight: 200;
+            letter-spacing: 6px;
+            color: var(--white-muted);
+            opacity: 0.4;
+        }
+        .hero-image .placeholder-img .brand-text span {
+            color: var(--gold);
+            opacity: 0.7;
+        }
+        .hero-image .placeholder-img .tiny-text {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--white-muted);
+            opacity: 0.2;
+            margin-top: 8px;
+        }
+
+        /* ----- SECTION COMMON ----- */
+        section {
+            padding: 100px 0;
+        }
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 200;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .section-title span {
+            color: var(--gold);
+            font-weight: 300;
+        }
+        .section-sub {
+            color: var(--white-muted);
+            font-weight: 300;
+            max-width: 540px;
+            font-size: 1.05rem;
+            margin-bottom: 48px;
+        }
+        .center-text {
+            text-align: center;
+        }
+        .center-text .section-sub {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .section-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 16px auto 24px;
+            opacity: 0.4;
+        }
+        .center-text .section-divider {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ----- ABOUT (Minimal) ----- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-image {
+            background: var(--black-light);
+            border-radius: 4px;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            flex-direction: column;
+            gap: 12px;
+            color: var(--white-muted);
+            padding: 40px;
+            text-align: center;
+        }
+        .about-image .big-number {
+            font-size: 6rem;
+            font-weight: 100;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+        }
+        .about-text p {
+            color: var(--white-muted);
+            font-weight: 300;
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+        }
+        .about-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 28px;
+        }
+        .stat-number {
+            font-size: 2.6rem;
+            font-weight: 200;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--white-muted);
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+
+        /* ----- GALLERY (Filterable Grid) ----- */
+        #portfolio {
+            background: var(--black-light);
+        }
+        .filter-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .filter-btn {
+            background: transparent;
+            color: var(--white-muted);
+            border: none;
+            padding: 6px 20px;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: color 0.3s, background 0.3s;
+            font-weight: 300;
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: var(--white);
+            background: rgba(201, 168, 160, 0.08);
+        }
+        .filter-btn.active {
+            color: var(--gold);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .gallery-item {
+            aspect-ratio: 1/1;
+            border-radius: 2px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: transform 0.5s ease, border-color 0.3s;
+            cursor: pointer;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-muted);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            font-weight: 300;
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+            border-color: rgba(201, 168, 160, 0.15);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        .gallery-item .overlay span {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--white);
+            font-weight: 300;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 20px;
+        }
+
+        /* Gallery item widths for variety */
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+        .gallery-item.tall {
+            grid-row: span 2;
+        }
+
+        /* ----- SERVICES (Minimal Cards) ----- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            padding: 40px 28px;
+            background: var(--black-light);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 4px;
+            text-align: center;
+            transition: transform 0.4s ease, border-color 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(201, 168, 160, 0.1);
+        }
+        .service-card .icon-wrap {
+            display: inline-flex;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+        .service-card h4 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+        .service-card p {
+            color: var(--white-muted);
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+
+        /* ----- TESTIMONIALS ----- */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card {
+            padding: 32px 28px;
+            background: var(--black-light);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 4px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .testimonial-card:hover {
+            border-color: rgba(201, 168, 160, 0.08);
+            transform: translateY(-4px);
+        }
+        .testimonial-card .stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+        .testimonial-card blockquote {
+            font-weight: 300;
+            color: var(--white);
+            font-style: italic;
+            margin: 12px 0;
+            font-size: 0.95rem;
+        }
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .testimonial-card .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--black);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 300;
+            color: var(--gold);
+            font-size: 0.8rem;
+        }
+        .testimonial-card cite {
+            font-style: normal;
+            color: var(--white-muted);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        /* ----- FAQ ----- */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: var(--black-light);
+            margin-bottom: 8px;
+            border-radius: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        .faq-item:hover {
+            border-color: rgba(201, 168, 160, 0.06);
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 24px;
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--white);
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+            letter-spacing: 0.5px;
+        }
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .faq-question .arrow {
+            transition: transform 0.3s;
+            display: inline-flex;
+            color: var(--gold);
+            opacity: 0.5;
+        }
+        .faq-item.active .faq-question .arrow {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s;
+            padding: 0 24px;
+            color: var(--white-muted);
+            font-weight: 300;
+            font-size: 0.95rem;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 24px 20px;
+        }
+
+        /* ----- CONTACT (Minimal) ----- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .contact-info p {
+            color: var(--white-muted);
+            font-weight: 300;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.95rem;
+        }
+        .contact-info .label {
+            color: var(--white);
+            min-width: 70px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+        .contact-info .icon-wrap {
+            display: inline-flex;
+            width: 24px;
+            flex-shrink: 0;
+            color: var(--gold);
+            opacity: 0.5;
+        }
+        .contact-info a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: var(--gold);
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            background: var(--black-light);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 2px;
+            color: var(--white);
+            font-size: 0.95rem;
+            transition: border-color 0.3s, background 0.3s;
+            font-weight: 300;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: rgba(201, 168, 160, 0.2);
+            background: var(--black);
+        }
+        .contact-form textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+        .contact-form button {
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            padding: 14px 36px;
+            font-weight: 500;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-form button:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        /* ----- FOOTER (Minimal) ----- */
+        footer {
+            background: var(--black);
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 40px 0 24px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-grid h4 {
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+            opacity: 0.6;
+        }
+        .footer-grid p,
+        .footer-grid a {
+            color: var(--white-muted);
+            font-weight: 300;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .footer-grid a:hover {
+            color: var(--white);
+        }
+        .footer-bottom {
+            text-align: center;
+            color: var(--white-muted);
+            font-size: 0.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 20px;
+            opacity: 0.3;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .footer-bottom span {
+            color: var(--gold);
+            opacity: 0.6;
+        }
+
+        /* ----- FLOATING WHATSAPP ----- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #25D366;
+            color: #fff;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.25);
+            z-index: 999;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.06);
+            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.35);
+        }
+
+        /* ----- BACK TO TOP ----- */
+        .back-top {
+            position: fixed;
+            bottom: 96px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--white);
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.3s;
+            z-index: 998;
+        }
+        .back-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-top:hover {
+            background: rgba(201, 168, 160, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* ----- SCROLL REVEAL ----- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered delays */
+        .gallery-item:nth-child(1) { transition-delay: 0.04s; }
+        .gallery-item:nth-child(2) { transition-delay: 0.08s; }
+        .gallery-item:nth-child(3) { transition-delay: 0.12s; }
+        .gallery-item:nth-child(4) { transition-delay: 0.16s; }
+        .gallery-item:nth-child(5) { transition-delay: 0.20s; }
+        .gallery-item:nth-child(6) { transition-delay: 0.24s; }
+        .gallery-item:nth-child(7) { transition-delay: 0.28s; }
+        .gallery-item:nth-child(8) { transition-delay: 0.32s; }
+
+        .service-card:nth-child(1) { transition-delay: 0.05s; }
+        .service-card:nth-child(2) { transition-delay: 0.10s; }
+        .service-card:nth-child(3) { transition-delay: 0.15s; }
+        .service-card:nth-child(4) { transition-delay: 0.20s; }
+
+        .testimonial-card:nth-child(1) { transition-delay: 0.05s; }
+        .testimonial-card:nth-child(2) { transition-delay: 0.10s; }
+        .testimonial-card:nth-child(3) { transition-delay: 0.15s; }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .gallery-item.wide {
+                grid-column: span 1;
+            }
+            .gallery-item.tall {
+                grid-row: span 1;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: var(--black);
+                padding: 24px 0;
+                gap: 16px;
+                border-top: 1px solid rgba(255, 255, 255, 0.04);
+                margin-top: 12px;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero-content h1 {
+                font-size: 2.6rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+            .about-stats {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+            .filter-buttons {
+                gap: 8px;
+            }
+            .filter-btn {
+                font-size: 0.6rem;
+                padding: 4px 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero {
+                padding: 80px 0 40px;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOADER -->
+    <div id="loader">
+        <div class="loader-text">LOAD<span>ING</span></div>
+    </div>
+
+    <!-- STICKY NAV -->
+    <nav id="navbar" role="navigation">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                    <circle cx="12" cy="13" r="4"/>
+                </svg>
+                <span>LENS</span><span class="divider">·</span><span>STUDIO</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact" class="nav-cta">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-tag">Visual Storyteller</div>
+                <h1>
+                    Capturing Life's<br />
+                    <span>Most Beautiful</span> Moments
+                </h1>
+                <p class="subtitle">Professional photography that tells your story with authenticity, elegance, and timeless artistry.</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn-primary">View Portfolio</a>
+                    <a href="#contact" class="btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="placeholder-img">
+                    <svg class="camera-icon" width="100" height="80" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                        <circle cx="12" cy="13" r="4"/>
+                    </svg>
+                    <div class="brand-text"><span>LENS</span> · STUDIO</div>
+                    <div class="tiny-text">Premium Photography</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" style="background:var(--black-light);">
+        <div class="container about-grid">
+            <div class="about-image reveal">
+                <div class="big-number">10+</div>
+                <p style="color:var(--white-muted);font-weight:300;font-size:0.9rem;letter-spacing:2px;opacity:0.5;">YEARS OF EXPERIENCE</p>
+                <p style="color:var(--white-muted);font-weight:300;font-size:0.8rem;opacity:0.3;">Weddings · Portraits · Events · Commercial</p>
+            </div>
+            <div class="about-text reveal">
+                <h2 class="section-title">About <span>Lens Studio</span></h2>
+                <p>I believe every photograph tells a story. With over a decade of experience behind the lens, I specialize in capturing authentic, emotional moments that you will treasure forever.</p>
+                <p>From intimate weddings to dynamic commercial shoots, my approach is always personal, professional, and deeply creative. I work with natural light, genuine connections, and an eye for the extraordinary in the ordinary.</p>
+                <div class="about-stats">
+                    <div><div class="stat-number">500+</div><div class="stat-label">Sessions</div></div>
+                    <div><div class="stat-number">150+</div><div class="stat-label">Happy Clients</div></div>
+                    <div><div class="stat-number">4.9</div><div class="stat-label">Rating</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO (Filterable) -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="center-text">
+                <h2 class="section-title reveal">Featured <span>Portfolio</span></h2>
+                <div class="section-divider"></div>
+                <p class="section-sub">A selection of my favorite work across different genres.</p>
+            </div>
+
+            <div class="filter-buttons reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="weddings">Weddings</button>
+                <button class="filter-btn" data-filter="portraits">Portraits</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Replace placeholder images with actual photos -->
+                <div class="gallery-item reveal" data-category="weddings">
+                    <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Wedding+1" alt="Wedding photography" />
+                    <div class="overlay"><span>Wedding</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="weddings">
+                    <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Wedding+2" alt="Wedding photography" />
+                    <div class="overlay"><span>Wedding</span></div>
+                </div>
+                <div class="gallery-item reveal wide" data-category="portraits">
+                    <img src="https://placehold.co/1200x600/1A1A1A/C9A8A0?text=Portrait+Session" alt="Portrait photography" />
+                    <div class="overlay"><span>Portrait</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="portraits">
+                    <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Portrait+1" alt="Portrait photography" />
+                    <div class="overlay"><span>Portrait</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="events">
+                    <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Event+1" alt="Event photography" />
+                    <div class="overlay"><span>Event</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="events">
+                    <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Event+2" alt="Event photography" />
+                    <div class="overlay"><span>Event</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="commercial">
+                    <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Commercial+1" alt="Commercial photography" />
+                    <div class="overlay"><span>Commercial</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="commercial">
+                    <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Commercial+2" alt="Commercial photography" />
+                    <div class="overlay"><span>Commercial</span></div>
+                </div>
+            </div>
+            <p style="text-align:center;color:var(--white-muted);font-size:0.75rem;margin-top:24px;opacity:0.3;letter-spacing:2px;">
+                Replace placeholder images with your actual photography work.
+            </p>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" style="background:var(--black-light);">
+        <div class="container">
+            <div class="center-text">
+                <h2 class="section-title reveal">My <span>Services</span></h2>
+                <div class="section-divider"></div>
+                <p class="section-sub">Professional photography services tailored to your needs.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="icon-wrap">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16v16H4z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <h4>Wedding Photography</h4>
+                    <p>Capturing your special day with elegance and emotion. From the first look to the last dance.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-wrap">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="8"/>
+                            <path d="M4 4 L8 8 M20 4 L16 8 M4 20 L8 16 M20 20 L16 16"/>
+                        </svg>
+                    </div>
+                    <h4>Portrait Sessions</h4>
+                    <p>Professional headshots, family portraits, and creative personal branding photography.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-wrap">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16v16H4z"/>
+                            <rect x="8" y="8" width="8" height="8"/>
+                            <path d="M4 12h3M17 12h3M12 4v3M12 17v3"/>
+                        </svg>
+                    </div>
+                    <h4>Event Coverage</h4>
+                    <p>Corporate events, conferences, birthday parties, and celebrations documented beautifully.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-wrap">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="M8 4v2M16 4v2M2 10h20"/>
+                            <path d="M6 14h3M15 14h3"/>
+                        </svg>
+                    </div>
+                    <h4>Commercial Photography</h4>
+                    <p>Product photography, brand campaigns, and visual content for businesses of all sizes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="center-text">
+                <h2 class="section-title reveal">Client <span>Love</span></h2>
+                <div class="section-divider"></div>
+                <p class="section-sub">What my clients say about their experience working with me.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card reveal">
+                    <div class="stars">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                    </div>
+                    <blockquote>"Absolutely stunning work! He captured every beautiful moment of our wedding perfectly. We couldn't be happier."</blockquote>
+                    <div class="author">
+                        <div class="avatar">SG</div>
+                        <div><cite>Sarah & James</cite><br /><span style="color:var(--white-muted);font-size:0.75rem;opacity:0.5;">Wedding Photography</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="stars">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                    </div>
+                    <blockquote>"Professional, creative, and so easy to work with. The photos exceeded all our expectations."</blockquote>
+                    <div class="author">
+                        <div class="avatar">MT</div>
+                        <div><cite>Michael Thompson</cite><br /><span style="color:var(--white-muted);font-size:0.75rem;opacity:0.5;">Portrait Session</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="stars">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
+                    </div>
+                    <blockquote>"Amazing attention to detail! He captured the energy of our corporate event perfectly."</blockquote>
+                    <div class="author">
+                        <div class="avatar">AK</div>
+                        <div><cite>Amara K.</cite><br /><span style="color:var(--white-muted);font-size:0.75rem;opacity:0.5;">Event Photography</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" style="background:var(--black-light);">
+        <div class="container">
+            <div class="center-text">
+                <h2 class="section-title reveal">Frequently Asked <span>Questions</span></h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">How do I book a session? <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                    <div class="faq-answer">Simply reach out via the contact form or WhatsApp. We'll discuss your needs, availability, and create a custom package for you.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What is your photography style? <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                    <div class="faq-answer">I specialize in natural, candid, and emotionally authentic photography. I use natural light and genuine interactions to create timeless images.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How long does it take to receive photos? <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                    <div class="faq-answer">Typically 2-3 weeks for weddings, and 1-2 weeks for portraits and events. You'll receive a sneak peek within 48 hours.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do you offer packages? <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+                    <div class="faq-answer">Yes! I offer customizable packages for weddings, portraits, events, and commercial work. Contact me for a personalized quote.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="center-text">
+                <h2 class="section-title reveal">Get in <span>Touch</span></h2>
+                <div class="section-divider"></div>
+                <p class="section-sub">Ready to capture your story? Let's create something beautiful together.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <p>
+                        <span class="icon-wrap">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </span>
+                        <span class="label">Phone</span> <a href="tel:+2348000000000">+234 800 000 0000</a>
+                    </p>
+                    <p>
+                        <span class="icon-wrap">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+                        </span>
+                        <span class="label">Email</span> <a href="mailto:hello@lensstudio.ng">hello@lensstudio.ng</a>
+                    </p>
+                    <p>
+                        <span class="icon-wrap">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.5"><circle cx="12" cy="10" r="3"/><path d="M12 22c4-4 8-7.5 8-12a8 8 0 0 0-16 0c0 4.5 4 8 8 12z"/></svg>
+                        </span>
+                        <span class="label">Location</span> Available Nationwide
+                    </p>
+                    <p>
+                        <span class="icon-wrap">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </span>
+                        <span class="label">Hours</span> Mon–Sat: 9:00 AM – 6:00 PM
+                    </p>
+                    <div style="margin-top:24px;">
+                        <a href="https://wa.me/2348000000000" target="_blank" style="background:#25D366; padding:12px 28px; border-radius:2px; display:inline-flex; align-items:center; gap:10px; color:#fff; font-weight:400; text-decoration:none; letter-spacing:2px; font-size:0.75rem; text-transform:uppercase; transition:opacity 0.3s;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <form class="contact-form" id="contactForm" onsubmit="event.preventDefault(); alert('Thank you! I will get back to you shortly.');">
+                        <input type="text" placeholder="Your Name" required />
+                        <input type="email" placeholder="Your Email" required />
+                        <input type="tel" placeholder="Your Phone" required />
+                        <select style="width:100%; padding:14px 18px; margin-bottom:16px; background:var(--black-light); border:1px solid rgba(255,255,255,0.06); border-radius:2px; color:var(--white); font-size:0.95rem; font-weight:300; appearance:none;">
+                            <option value="">What type of session?</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="portrait">Portrait</option>
+                            <option value="event">Event</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <textarea placeholder="Tell me about your vision..." required></textarea>
+                        <button type="submit">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                            Send Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Lens Studio</h4>
+                    <p style="font-weight:300;font-size:0.9rem;">Premium photography that tells your story with authenticity, elegance, and timeless artistry.</p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <a href="#services">Weddings</a>
+                    <a href="#services">Portraits</a>
+                    <a href="#services">Events</a>
+                    <a href="#services">Commercial</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                    <a href="https://facebook.com" target="_blank">Facebook</a>
+                    <a href="mailto:hello@lensstudio.ng">Email</a>
+                    <a href="tel:+2348000000000">Phone</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 <span>Lens Studio</span> · All rights reserved
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/2348000000000?text=Hello!%20I%20found%20your%20photography%20website%20and%20would%20like%20to%20book%20a%20session." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="#ffffff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- BACK TO TOP -->
+    <a href="#" class="back-top" id="backTop" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </a>
+
+    <script>
+        // ----- LOADER -----
+        window.addEventListener('load', () => {
+            document.getElementById('loader').classList.add('hidden');
+        });
+
+        // ----- HAMBURGER -----
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ----- SCROLL REVEAL -----
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ----- GALLERY FILTER -----
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 400);
+                    }
+                });
+            });
+        });
+
+        // ----- FAQ ACCORDION -----
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const btn = item.querySelector('.faq-question');
+            btn.addEventListener('click', () => {
+                faqItems.forEach(other => {
+                    if (other !== item) other.classList.remove('active');
+                });
+                item.classList.toggle('active');
+            });
+        });
+        if (faqItems.length) faqItems[0].classList.add('active');
+
+        // ----- BACK TO TOP -----
+        const backTop = document.getElementById('backTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backTop.classList.add('visible');
+            } else {
+                backTop.classList.remove('visible');
+            }
+
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        backTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ----- SCROLL SPY -----
+        const sections = document.querySelectorAll('section[id]');
+        const navLinkItems = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 140;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinkItems.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ----- SMOOTH SCROLL -----
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
