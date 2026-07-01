@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Photographer | Premium Visual Storytelling</title>
-    <meta name="description" content="Professional photography services. Weddings, Portraits, Events, and Commercial photography. Capturing life's most beautiful moments." />
-    <link rel="canonical" href="https://yourphotography.ng/" />
-    <meta property="og:title" content="Photographer | Premium Visual Storytelling" />
+    <title>AA D LENS | Premium Photography</title>
+    <meta name="description" content="AA D LENS - Premium photography services. Weddings, Portraits, Events, and Commercial photography. Capturing life's most beautiful moments." />
+    <link rel="canonical" href="https://aadlens.ng/" />
+    <meta property="og:title" content="AA D LENS | Premium Photography" />
     <meta property="og:description" content="Professional photography services. Weddings, Portraits, Events, and Commercial photography." />
     <meta property="og:type" content="website" />
     <style>
@@ -71,16 +71,11 @@
             color: var(--gold);
         }
         @keyframes pulse {
-            0%,
-            100% {
-                opacity: 0.4;
-            }
-            50% {
-                opacity: 1;
-            }
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
         }
 
-        /* ----- STICKY NAV (Minimal) ----- */
+        /* ----- STICKY NAV ----- */
         nav {
             position: fixed;
             top: 0;
@@ -201,7 +196,7 @@
             transform: rotate(-45deg) translate(5px, -5px);
         }
 
-        /* ----- HERO (Full-width, Minimal) ----- */
+        /* ----- HERO ----- */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -331,9 +326,9 @@
             opacity: 0.6;
         }
         .hero-image .placeholder-img .brand-text {
-            font-size: 1rem;
+            font-size: 1.8rem;
             font-weight: 200;
-            letter-spacing: 6px;
+            letter-spacing: 8px;
             color: var(--white-muted);
             opacity: 0.4;
         }
@@ -389,7 +384,7 @@
             margin-right: auto;
         }
 
-        /* ----- ABOUT (Minimal) ----- */
+        /* ----- ABOUT ----- */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -442,7 +437,7 @@
             opacity: 0.5;
         }
 
-        /* ----- GALLERY (Filterable Grid) ----- */
+        /* ----- GALLERY ----- */
         #portfolio {
             background: var(--black-light);
         }
@@ -527,8 +522,6 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 6px 20px;
         }
-
-        /* Gallery item widths for variety */
         .gallery-item.wide {
             grid-column: span 2;
         }
@@ -536,7 +529,7 @@
             grid-row: span 2;
         }
 
-        /* ----- SERVICES (Minimal Cards) ----- */
+        /* ----- SERVICES ----- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -684,7 +677,7 @@
             padding: 0 24px 20px;
         }
 
-        /* ----- CONTACT (Minimal) ----- */
+        /* ----- CONTACT ----- */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -766,7 +759,37 @@
             transform: translateY(-2px);
         }
 
-        /* ----- FOOTER (Minimal) ----- */
+        /* ----- SOCIAL PROOF BAR ----- */
+        .social-bar {
+            background: var(--black-light);
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .social-bar .container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .social-bar a {
+            color: var(--white-muted);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 300;
+        }
+        .social-bar a:hover {
+            color: var(--gold);
+        }
+
+        /* ----- FOOTER ----- */
         footer {
             background: var(--black);
             border-top: 1px solid rgba(255, 255, 255, 0.04);
@@ -879,7 +902,6 @@
             transform: translateY(0);
         }
 
-        /* Staggered delays */
         .gallery-item:nth-child(1) { transition-delay: 0.04s; }
         .gallery-item:nth-child(2) { transition-delay: 0.08s; }
         .gallery-item:nth-child(3) { transition-delay: 0.12s; }
@@ -900,27 +922,13 @@
 
         /* ----- RESPONSIVE ----- */
         @media (max-width: 992px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-content h1 {
-                font-size: 3.2rem;
-            }
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .gallery-item.wide {
-                grid-column: span 1;
-            }
-            .gallery-item.tall {
-                grid-row: span 1;
-            }
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 3.2rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-item.wide { grid-column: span 1; }
+            .gallery-item.tall { grid-row: span 1; }
         }
         @media (max-width: 768px) {
             .nav-links {
@@ -933,61 +941,27 @@
                 border-top: 1px solid rgba(255, 255, 255, 0.04);
                 margin-top: 12px;
             }
-            .nav-links.open {
-                display: flex;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .hero-content h1 {
-                font-size: 2.6rem;
-            }
-            .section-title {
-                font-size: 2.2rem;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: flex; }
+            .hero-content h1 { font-size: 2.6rem; }
+            .section-title { font-size: 2.2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
             .hero-buttons .btn-primary,
-            .hero-buttons .btn-secondary {
-                width: 100%;
-                justify-content: center;
-            }
-            .about-stats {
-                flex-wrap: wrap;
-                gap: 20px;
-            }
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            }
-            .filter-buttons {
-                gap: 8px;
-            }
-            .filter-btn {
-                font-size: 0.6rem;
-                padding: 4px 14px;
-            }
+            .hero-buttons .btn-secondary { width: 100%; justify-content: center; }
+            .about-stats { flex-wrap: wrap; gap: 20px; }
+            .whatsapp-float { width: 50px; height: 50px; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+            .filter-buttons { gap: 8px; }
+            .filter-btn { font-size: 0.6rem; padding: 4px 14px; }
+            .social-bar .container { gap: 20px; }
         }
         @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
-            }
-            .hero {
-                padding: 80px 0 40px;
-            }
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
+            .container { padding: 0 16px; }
+            .hero { padding: 80px 0 40px; }
+            .hero-content h1 { font-size: 2rem; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+            .services-grid { grid-template-columns: 1fr; }
+            .social-bar .container { gap: 12px; flex-direction: column; }
         }
     </style>
 </head>
@@ -995,7 +969,7 @@
 
     <!-- LOADER -->
     <div id="loader">
-        <div class="loader-text">LOAD<span>ING</span></div>
+        <div class="loader-text">AA<span>D</span> LENS</div>
     </div>
 
     <!-- STICKY NAV -->
@@ -1006,7 +980,7 @@
                     <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
                     <circle cx="12" cy="13" r="4"/>
                 </svg>
-                <span>LENS</span><span class="divider">·</span><span>STUDIO</span>
+                AA<span>D</span> LENS
             </a>
             <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
                 <span></span><span></span><span></span>
@@ -1041,24 +1015,42 @@
                         <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
                         <circle cx="12" cy="13" r="4"/>
                     </svg>
-                    <div class="brand-text"><span>LENS</span> · STUDIO</div>
+                    <div class="brand-text"><span>AA</span>D · LENS</div>
                     <div class="tiny-text">Premium Photography</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SOCIAL PROOF BAR -->
+    <div class="social-bar">
+        <div class="container">
+            <a href="https://instagram.com/aad_lens" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="18.5" cy="5.5" r="1.5" fill="currentColor"/></svg>
+                @aad_lens
+            </a>
+            <a href="https://tiktok.com/@aadlens" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 2h-4v14a4 4 0 1 1-4-4v-4a8 8 0 1 0 8 8V2z"/></svg>
+                @aadlens
+            </a>
+            <a href="https://wa.me/2347041686802" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                07041686802
+            </a>
+        </div>
+    </div>
+
     <!-- ABOUT -->
     <section id="about" style="background:var(--black-light);">
         <div class="container about-grid">
             <div class="about-image reveal">
-                <div class="big-number">10+</div>
-                <p style="color:var(--white-muted);font-weight:300;font-size:0.9rem;letter-spacing:2px;opacity:0.5;">YEARS OF EXPERIENCE</p>
-                <p style="color:var(--white-muted);font-weight:300;font-size:0.8rem;opacity:0.3;">Weddings · Portraits · Events · Commercial</p>
+                <div class="big-number">AA</div>
+                <p style="color:var(--white-muted);font-weight:300;font-size:1.2rem;letter-spacing:4px;opacity:0.5;">D · LENS</p>
+                <p style="color:var(--white-muted);font-weight:300;font-size:0.8rem;opacity:0.3;">Premium Photography</p>
             </div>
             <div class="about-text reveal">
-                <h2 class="section-title">About <span>Lens Studio</span></h2>
-                <p>I believe every photograph tells a story. With over a decade of experience behind the lens, I specialize in capturing authentic, emotional moments that you will treasure forever.</p>
+                <h2 class="section-title">About <span>AA D LENS</span></h2>
+                <p>I believe every photograph tells a story. With a passion for capturing authentic moments, I specialize in creating images that you will treasure forever.</p>
                 <p>From intimate weddings to dynamic commercial shoots, my approach is always personal, professional, and deeply creative. I work with natural light, genuine connections, and an eye for the extraordinary in the ordinary.</p>
                 <div class="about-stats">
                     <div><div class="stat-number">500+</div><div class="stat-label">Sessions</div></div>
@@ -1069,7 +1061,7 @@
         </div>
     </section>
 
-    <!-- PORTFOLIO (Filterable) -->
+    <!-- PORTFOLIO -->
     <section id="portfolio">
         <div class="container">
             <div class="center-text">
@@ -1087,17 +1079,16 @@
             </div>
 
             <div class="gallery-grid" id="galleryGrid">
-                <!-- Replace placeholder images with actual photos -->
                 <div class="gallery-item reveal" data-category="weddings">
-                    <img src="WhatsApp Image 2026-07-01 at 14.03.31.jpeg" alt="Wedding photography" />
+                    <img src="WhatsApp Image 2026-07-01 at 14.03.32.jpeg" />
                     <div class="overlay"><span>Wedding</span></div>
                 </div>
                 <div class="gallery-item reveal" data-category="weddings">
-                    <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Wedding+2" alt="Wedding photography" />
+                    <img src="WhatsApp Image 2026-07-01 at 14.03.35.jpeg" />
                     <div class="overlay"><span>Wedding</span></div>
                 </div>
                 <div class="gallery-item reveal wide" data-category="portraits">
-                    <img src="https://placehold.co/1200x600/1A1A1A/C9A8A0?text=Portrait+Session" alt="Portrait photography" />
+                    <img src="WhatsApp Image 2026-07-01 at 14.03.42.jpeg" />
                     <div class="overlay"><span>Portrait</span></div>
                 </div>
                 <div class="gallery-item reveal" data-category="portraits">
@@ -1105,11 +1096,11 @@
                     <div class="overlay"><span>Portrait</span></div>
                 </div>
                 <div class="gallery-item reveal" data-category="events">
-                    <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Event+1" alt="Event photography" />
+                    <img src="WhatsApp Image 2026-07-01 at 14.03.55.jpeg" alt="Event photography" />
                     <div class="overlay"><span>Event</span></div>
                 </div>
                 <div class="gallery-item reveal" data-category="events">
-                    <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Event+2" alt="Event photography" />
+                    <img src="WhatsApp Image 2026-07-01 at 14.05.22.jpeg" alt="Event photography" />
                     <div class="overlay"><span>Event</span></div>
                 </div>
                 <div class="gallery-item reveal" data-category="commercial">
@@ -1117,6 +1108,21 @@
                     <div class="overlay"><span>Commercial</span></div>
                 </div>
                 <div class="gallery-item reveal" data-category="commercial">
+                    <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Commercial+2" alt="Commercial photography" />
+                    <div class="overlay"><span>Commercial</span></div>
+                </div>
+            </div>
+               <div class="gallery-item reveal" data-category="commercial">
+                    <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Commercial+2" alt="Commercial photography" />
+                    <div class="overlay"><span>Commercial</span></div>
+              </div>
+            </div>
+           <div class="gallery-item reveal" data-category="commercial">
+                    <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Commercial+2" alt="Commercial photography" />
+                    <div class="overlay"><span>Commercial</span></div>
+                </div>
+            </div>
+           <div class="gallery-item reveal" data-category="commercial">
                     <img src="https://placehold.co/600x600/1A1A1A/C9A8A0?text=Commercial+2" alt="Commercial photography" />
                     <div class="overlay"><span>Commercial</span></div>
                 </div>
@@ -1138,42 +1144,28 @@
             <div class="services-grid">
                 <div class="service-card reveal">
                     <div class="icon-wrap">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16v16H4z"/>
-                            <circle cx="12" cy="12" r="3"/>
-                        </svg>
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.2"><path d="M4 4h16v16H4z"/><circle cx="12" cy="12" r="3"/></svg>
                     </div>
                     <h4>Wedding Photography</h4>
                     <p>Capturing your special day with elegance and emotion. From the first look to the last dance.</p>
                 </div>
                 <div class="service-card reveal">
                     <div class="icon-wrap">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="8"/>
-                            <path d="M4 4 L8 8 M20 4 L16 8 M4 20 L8 16 M20 20 L16 16"/>
-                        </svg>
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.2"><circle cx="12" cy="12" r="8"/><path d="M4 4 L8 8 M20 4 L16 8 M4 20 L8 16 M20 20 L16 16"/></svg>
                     </div>
                     <h4>Portrait Sessions</h4>
                     <p>Professional headshots, family portraits, and creative personal branding photography.</p>
                 </div>
                 <div class="service-card reveal">
                     <div class="icon-wrap">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16v16H4z"/>
-                            <rect x="8" y="8" width="8" height="8"/>
-                            <path d="M4 12h3M17 12h3M12 4v3M12 17v3"/>
-                        </svg>
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.2"><path d="M4 4h16v16H4z"/><rect x="8" y="8" width="8" height="8"/><path d="M4 12h3M17 12h3M12 4v3M12 17v3"/></svg>
                     </div>
                     <h4>Event Coverage</h4>
                     <p>Corporate events, conferences, birthday parties, and celebrations documented beautifully.</p>
                 </div>
                 <div class="service-card reveal">
                     <div class="icon-wrap">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="4" width="20" height="16" rx="2"/>
-                            <path d="M8 4v2M16 4v2M2 10h20"/>
-                            <path d="M6 14h3M15 14h3"/>
-                        </svg>
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v2M16 4v2M2 10h20"/></svg>
                     </div>
                     <h4>Commercial Photography</h4>
                     <p>Product photography, brand campaigns, and visual content for businesses of all sizes.</p>
@@ -1199,7 +1191,7 @@
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
                     </div>
-                    <blockquote>"Absolutely stunning work! He captured every beautiful moment of our wedding perfectly. We couldn't be happier."</blockquote>
+                    <blockquote>"Absolutely stunning work! He captured every beautiful moment perfectly. I couldn't be happier."</blockquote>
                     <div class="author">
                         <div class="avatar">SG</div>
                         <div><cite>Sarah & James</cite><br /><span style="color:var(--white-muted);font-size:0.75rem;opacity:0.5;">Wedding Photography</span></div>
@@ -1213,7 +1205,7 @@
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
                     </div>
-                    <blockquote>"Professional, creative, and so easy to work with. The photos exceeded all our expectations."</blockquote>
+                    <blockquote>"Professional, creative, and so easy to work with. The photos exceeded all my expectations."</blockquote>
                     <div class="author">
                         <div class="avatar">MT</div>
                         <div><cite>Michael Thompson</cite><br /><span style="color:var(--white-muted);font-size:0.75rem;opacity:0.5;">Portrait Session</span></div>
@@ -1227,7 +1219,7 @@
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A8A0"><polygon points="12,2 15.09,8.5 22,9.5 17,14.5 18.18,21 12,17.5 5.82,21 7,14.5 2,9.5 8.91,8.5"/></svg>
                     </div>
-                    <blockquote>"Amazing attention to detail! He captured the energy of our corporate event perfectly."</blockquote>
+                    <blockquote>"Amazing attention to detail! He captured the energy of our event perfectly."</blockquote>
                     <div class="author">
                         <div class="avatar">AK</div>
                         <div><cite>Amara K.</cite><br /><span style="color:var(--white-muted);font-size:0.75rem;opacity:0.5;">Event Photography</span></div>
@@ -1247,7 +1239,7 @@
             <div class="faq-list">
                 <div class="faq-item">
                     <button class="faq-question">How do I book a session? <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg></span></button>
-                    <div class="faq-answer">Simply reach out via the contact form or WhatsApp. We'll discuss your needs, availability, and create a custom package for you.</div>
+                    <div class="faq-answer">Simply reach out via the contact form or WhatsApp. I'll discuss your needs, availability, and create a custom package for you.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What is your photography style? <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg></span></button>
@@ -1279,13 +1271,13 @@
                         <span class="icon-wrap">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         </span>
-                        <span class="label">Phone</span> <a href="tel:+2348000000000">+234 800 000 0000</a>
+                        <span class="label">Phone</span> <a href="tel:+2347041686802">0704 168 6802</a>
                     </p>
                     <p>
                         <span class="icon-wrap">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A8A0" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
                         </span>
-                        <span class="label">Email</span> <a href="mailto:hello@lensstudio.ng">hello@lensstudio.ng</a>
+                        <span class="label">Email</span> <a href="mailto:info@aadlens.ng">info@aadlens.ng</a>
                     </p>
                     <p>
                         <span class="icon-wrap">
@@ -1300,7 +1292,7 @@
                         <span class="label">Hours</span> Mon–Sat: 9:00 AM – 6:00 PM
                     </p>
                     <div style="margin-top:24px;">
-                        <a href="https://wa.me/2348000000000" target="_blank" style="background:#25D366; padding:12px 28px; border-radius:2px; display:inline-flex; align-items:center; gap:10px; color:#fff; font-weight:400; text-decoration:none; letter-spacing:2px; font-size:0.75rem; text-transform:uppercase; transition:opacity 0.3s;">
+                        <a href="https://wa.me/2347041686802" target="_blank" style="background:#25D366; padding:12px 28px; border-radius:2px; display:inline-flex; align-items:center; gap:10px; color:#fff; font-weight:400; text-decoration:none; letter-spacing:2px; font-size:0.75rem; text-transform:uppercase; transition:opacity 0.3s;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                             Chat on WhatsApp
                         </a>
@@ -1335,7 +1327,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h4>Lens Studio</h4>
+                    <h4>AA D LENS</h4>
                     <p style="font-weight:300;font-size:0.9rem;">Premium photography that tells your story with authenticity, elegance, and timeless artistry.</p>
                 </div>
                 <div>
@@ -1347,20 +1339,20 @@
                 </div>
                 <div>
                     <h4>Connect</h4>
-                    <a href="https://instagram.com" target="_blank">Instagram</a>
-                    <a href="https://facebook.com" target="_blank">Facebook</a>
-                    <a href="mailto:hello@lensstudio.ng">Email</a>
-                    <a href="tel:+2348000000000">Phone</a>
+                    <a href="https://instagram.com/aad_lens" target="_blank">Instagram</a>
+                    <a href="https://tiktok.com/@aadlens" target="_blank">TikTok</a>
+                    <a href="https://wa.me/2347041686802" target="_blank">WhatsApp</a>
+                    <a href="mailto:info@aadlens.ng">Email</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 <span>Lens Studio</span> · All rights reserved
+                &copy; 2026 <span>AA D LENS</span> · All rights reserved
             </div>
         </div>
     </footer>
 
     <!-- FLOATING WHATSAPP -->
-    <a href="https://wa.me/2348000000000?text=Hello!%20I%20found%20your%20photography%20website%20and%20would%20like%20to%20book%20a%20session." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/2347041686802?text=Hello!%20I%20found%20your%20photography%20website%20and%20would%20like%20to%20book%20a%20session." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="#ffffff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
